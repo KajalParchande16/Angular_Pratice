@@ -1,0 +1,31 @@
+.custom-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.custom-table thead {
+  background: linear-gradient(90deg, #4e54c8, #8f94fb);
+  color: white;
+}
+
+.custom-table thead th {
+  padding: 1rem;
+  font-weight: 600;
+  border-bottom: none;
+  vertical-align: middle;
+}
+
+.custom-table tbody tr {
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #eef0ff;
+}
+
+.custom-table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
