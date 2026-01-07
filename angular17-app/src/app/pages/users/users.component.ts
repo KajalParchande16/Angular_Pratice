@@ -1,11 +1,12 @@
 import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { UtilityService } from '../../core/utility.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
@@ -19,6 +20,7 @@ export class UsersComponent implements OnInit {
 
   userObj: Users = new Users();
   us = inject(UtilityService);
+  showError=false;
 
   ngOnInit() {
     const localData = localStorage.getItem('angular-17-crud');
@@ -42,8 +44,14 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit(userForm:NgForm) {
     // debugger;
+  //  if (userForm.invalid) {
+  //   this.showError = true;
+  //   console.log(this.showError)
+  //   return;
+  // }
+
     const storeDataToLocalStorage = localStorage.getItem('angular-17-crud');
     if (storeDataToLocalStorage != null) {
       const oldArr = JSON.parse(storeDataToLocalStorage);
