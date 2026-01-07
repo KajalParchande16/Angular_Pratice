@@ -2,11 +2,12 @@ import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core'
 import { FormsModule, NgForm } from '@angular/forms';
 import { UtilityService } from '../../core/utility.service';
 import { CommonModule } from '@angular/common';
+import { TempErrorComponent } from '../../shared/temp-error/temp-error.component';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,TempErrorComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
@@ -101,6 +102,10 @@ export class UsersComponent implements OnInit {
         localStorage.setItem('angular-17-crud', JSON.stringify(this.users));
       }
     }
+  }
+
+  getErrorMessage(fieldName:String){
+    return `${fieldName} is Required`
   }
 }
 
