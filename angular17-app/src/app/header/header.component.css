@@ -1,0 +1,93 @@
+/* Custom Gradient Navbar */
+.custom-navbar {
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* gradient blue shades */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Navbar brand */
+.custom-navbar .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #e0f7ff;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.custom-navbar .navbar-brand:hover {
+    color: #00f0ff;
+}
+
+/* Navbar links */
+.custom-navbar .nav-link {
+    color: #d0eaff;
+    margin: 0 0.5rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+.custom-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: #00d1ff;
+    transition: width 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover::after {
+    width: 100%;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #00f0ff;
+}
+
+/* Active link */
+.custom-navbar .nav-link.active {
+    font-weight: bold;
+    color: #00f0ff;
+}
+
+/* Dropdown menu */
+.custom-navbar .dropdown-menu {
+    background: linear-gradient(180deg, #2a5298, #1e3c72);
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+/* Dropdown items hover */
+.custom-navbar .dropdown-item:hover {
+    background-color: rgba(0, 200, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Navbar toggler */
+.custom-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224,247,255,0.9)' stroke-width='2'stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Ensure dropdown arrow shows for dark navbar */
+.custom-navbar .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid #fff;  /* white arrow */
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+}
+
+/* Optional: on hover, arrow color changes */
+.custom-navbar .nav-item.dropdown:hover .dropdown-toggle::after {
+    border-top-color: #00d1ff; /* bright blue on hover */
+}
+
