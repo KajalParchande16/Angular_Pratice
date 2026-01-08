@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+/* TOP */
+.modal-top .modal-dialog {
+  margin-top: 1rem;
+}
+
+/* BOTTOM */
+.modal-bottom .modal-dialog {
+  position: fixed;
+  bottom: 1rem;
+  margin: auto;
+}
+
+/* LEFT */
+.modal-left .modal-dialog {
+  position: fixed;
+  left: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.modal-left .modal-content {
+  height: 100%;
+}
+
+/* RIGHT */
+.modal-right .modal-dialog {
+  position: fixed;
+  right: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.modal-right .modal-content {
+  height: 100%;
+}

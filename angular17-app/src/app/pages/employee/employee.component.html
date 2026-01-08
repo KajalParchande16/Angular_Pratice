@@ -1,9 +1,29 @@
 <div class="container">
     <div class=" d-flex justify-content-end align-items-center  border-bottom-0 mt-2">
-        <button class="btn btn-primary add-user-btn" (click)="openModal(empModal)">
+        <button class="btn btn-primary  add-user-btn" (click)="openModal(empModal)">
             <i class="bi bi-person-plus me-1"></i> Add Employee
         </button>
+        <button class="btn btn-primary ms-3 add-user-btn" (click)="openModal1(content)">
+            <i class="bi bi-person-plus me-1"></i> Open Small Right  modal
+        </button>
+         <button class="btn btn-primary ms-3 add-user-btn" (click)="openLargeModal(content2)">
+            <i class="bi bi-person-plus me-1"></i> Open Large Left  modal
+        </button>
+        <button class="btn btn-primary ms-3 add-user-btn" (click)="openLargeBottomModal(content3)">
+            <i class="bi bi-person-plus me-1"></i> Open Large Bottom  modal
+        </button>
+         <button class="btn btn-primary ms-3 add-user-btn" (click)="openLargeCenterModal(content3)">
+            <i class="bi bi-person-plus me-1"></i> Open Large Center  modal
+        </button>
+        <button class="btn btn-primary ms-3 add-user-btn" (click)="openLargeTopModal(content3)">
+            <i class="bi bi-person-plus me-1"></i> Open Large Top  modal
+        </button>
+
+        <button class="btn btn-primary ms-3 add-user-btn" (click)="openLargeFullScreenModal(content3)">
+            <i class="bi bi-person-plus me-1"></i> Open Large FullScreen  modal
+        </button>
     </div>
+    
 </div>
 <ng-template #empModal>
     <div class="modal-header">
@@ -24,4 +44,54 @@
         <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
         <button type="button" ngbAutofocus class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
     </div>
+</ng-template>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Modal title</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>One fine body&hellip;</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+
+<ng-template #content2 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Modal title</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>
+            <strong>Are you sure you want to delete <span class="text-primary">"John Doe"</span> profile?</strong>
+        </p>
+        <p>
+            All information associated to this user profile will be permanently deleted.
+            <span class="text-danger">This operation can not be undone.</span>
+        </p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+<ng-template #content3 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Modal title</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>
+            <strong>Are you sure you want to delete <span class="text-primary">"John Doe"</span> profile?</strong>
+        </p>
+        <p>
+            All information associated to this user profile will be permanently deleted.
+            <span class="text-danger">This operation can not be undone.</span>
+        </p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
 </ng-template>
