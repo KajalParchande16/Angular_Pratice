@@ -1,93 +1,126 @@
-/* Custom Gradient Navbar */
+/* ===============================
+   Navbar Base
+================================ */
 .custom-navbar {
-    background: linear-gradient(135deg, #1e3c72, #2a5298); /* gradient blue shades */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+  background: linear-gradient(135deg, #0f2a44, #123c66);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.75rem 1rem;
 }
 
-/* Navbar brand */
+/* ===============================
+   Brand
+================================ */
 .custom-navbar .navbar-brand {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #e0f7ff;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e6f4ff;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
 
 .custom-navbar .navbar-brand:hover {
-    color: #00f0ff;
+  color: #4fd1ff;
 }
 
-/* Navbar links */
+/* ===============================
+   Nav Links
+================================ */
 .custom-navbar .nav-link {
-    color: #d0eaff;
-    margin: 0 0.5rem;
-    position: relative;
-    transition: color 0.3s ease;
+  color: #cfe9ff;
+  font-weight: 500;
+  margin: 0 0.6rem;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-/* Hover underline animation */
+/* underline animation */
 .custom-navbar .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    left: 0;
-    bottom: -4px;
-    background-color: #00d1ff;
-    transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
+  background-color: #4fd1ff;
+  transition: width 0.3s ease;
 }
 
-.custom-navbar .nav-link:hover::after {
-    width: 100%;
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  width: 100%;
 }
 
 .custom-navbar .nav-link:hover {
-    color: #00f0ff;
+  color: #4fd1ff;
 }
 
-/* Active link */
+/* Active route */
 .custom-navbar .nav-link.active {
-    font-weight: bold;
-    color: #00f0ff;
+  color: #4fd1ff;
+  font-weight: 600;
 }
 
-/* Dropdown menu */
+/* ===============================
+   ng-bootstrap Dropdown
+================================ */
 .custom-navbar .dropdown-menu {
-    background: linear-gradient(180deg, #2a5298, #1e3c72);
-    border-radius: 0.25rem;
-    transition: all 0.3s ease;
+  background: linear-gradient(180deg, #123c66, #0f2a44);
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.4rem 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Dropdown items hover */
-.custom-navbar .dropdown-item:hover {
-    background-color: rgba(0, 200, 255, 0.2);
-    color: #ffffff;
+/* dropdown items */
+.custom-navbar .dropdown-item {
+  color: #d9f0ff;
+  font-weight: 500;
+  padding: 0.55rem 1.2rem;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
-/* Navbar toggler */
+.custom-navbar .dropdown-item:hover,
+.custom-navbar .dropdown-item.active {
+  background: rgba(79, 209, 255, 0.15);
+  color: #ffffff;
+}
+
+/* ===============================
+   Dropdown Toggle (arrow + icon)
+================================ */
+.custom-navbar [ngbDropdownToggle] {
+  cursor: pointer;
+}
+
+/* keep Bootstrap arrow visible */
+.custom-navbar .dropdown-toggle::after {
+  margin-left: 0.35rem;
+  border-top-color: #cfe9ff;
+}
+
+.custom-navbar .dropdown-toggle:hover::after {
+  border-top-color: #4fd1ff;
+}
+
+/* caret icon animation */
+.custom-navbar .bi-caret-down-fill {
+  font-size: 0.65rem;
+  transition: transform 0.3s ease;
+}
+
+/* rotate caret when open */
+.custom-navbar .show > a .bi-caret-down-fill {
+  transform: rotate(180deg);
+}
+
+/* ===============================
+   Mobile Toggler
+================================ */
 .custom-navbar .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .custom-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224,247,255,0.9)' stroke-width='2'stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(230,244,255,0.9)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
-
-/* Ensure dropdown arrow shows for dark navbar */
-.custom-navbar .dropdown-toggle::after {
-    display: inline-block;
-    margin-left: 0.255em;
-    vertical-align: 0.255em;
-    content: "";
-    border-top: 0.3em solid #fff;  /* white arrow */
-    border-right: 0.3em solid transparent;
-    border-left: 0.3em solid transparent;
-}
-
-/* Optional: on hover, arrow color changes */
-.custom-navbar .nav-item.dropdown:hover .dropdown-toggle::after {
-    border-top-color: #00d1ff; /* bright blue on hover */
-}
-
