@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { MyServicesService } from '../../core/services/my-services.service';
 
 @Component({
   selector: 'app-sub-beh-replay',
@@ -17,6 +18,9 @@ export class SubBehReplayComponent implements OnInit {
 
   // userData$=new Subject("Taniya"); not possible
   userData$: Subject<string> = new Subject<string>();
+
+  ser=inject(MyServicesService);
+
   constructor() {
     setTimeout(() => {
 
@@ -27,6 +31,8 @@ export class SubBehReplayComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.ser.matchDuration.next("5 Hourse");
+
     this.userName$.subscribe((res) => {
       console.log(res);
     });
@@ -36,6 +42,12 @@ export class SubBehReplayComponent implements OnInit {
     this.takeTill.subscribe((res) => {
       console.log("not val", res)
     })
+
+    this.ser.matchDuration.subscribe((res)=>{
+      console.log(res);//getting intial value whic is stored in service 
+      // if we update value anywhere from project (any compoent)we get new value
+    })
+    
   }
 
 }

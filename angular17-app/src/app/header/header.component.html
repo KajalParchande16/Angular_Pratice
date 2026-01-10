@@ -63,6 +63,12 @@
          <li class="nav-item">
           <a class="nav-link" routerLink="/user">Home</a>
         </li>
+        <li>
+          <select class="form-select"  name="Role" (change)="onRoleChange($event)">
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+          </select>
+        </li>
 
       </ul>
     </div>

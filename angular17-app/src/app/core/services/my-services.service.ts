@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, tap } from 'rxjs';
+import { BehaviorSubject, map, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,10 @@ import { map, tap } from 'rxjs';
 export class MyServicesService {
 
   http=inject(HttpClient);
+  matchDuration=new BehaviorSubject<string>('4 Hours');
+  roleSub$=new Subject<string>();
+  roleBehSub=new BehaviorSubject<string>('');
+
   constructor() { }
 
   getUsers()

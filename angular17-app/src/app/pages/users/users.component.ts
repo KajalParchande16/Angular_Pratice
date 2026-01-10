@@ -3,6 +3,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { UtilityService } from '../../core/utility.service';
 import { CommonModule } from '@angular/common';
 import { TempErrorComponent } from '../../shared/temp-error/temp-error.component';
+import { MyServicesService } from '../../core/services/my-services.service';
 
 @Component({
   selector: 'app-users',
@@ -23,6 +24,17 @@ export class UsersComponent implements OnInit {
   us = inject(UtilityService);
   showError=false;
 
+  myser=inject(MyServicesService);
+
+  constructor()
+  {
+    this.myser.roleSub$.subscribe((res)=>{
+      // debugger;
+    });
+    this.myser.roleBehSub.subscribe((res)=>{
+      // debugger;
+    })
+  }
   ngOnInit() {
     const localData = localStorage.getItem('angular-17-crud');
     if (localData != null) {
