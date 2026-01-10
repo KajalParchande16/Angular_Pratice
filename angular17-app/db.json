@@ -1,0 +1,13 @@
+{
+    "userList": [
+        {
+            "id": 0,
+            "name": "",
+            "email": "",
+            "city": "",
+            "state": "",
+            "pincode": 0,
+            "address": ""
+        }
+    ]
+}
