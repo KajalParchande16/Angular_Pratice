@@ -1,0 +1,225 @@
+<div class="container mt-4">
+  <form [formGroup]="applicationForm" >
+
+    <!-- Personal Details -->
+    <div class="card mb-4 shadow-sm">
+  <div class="card-header  text-white">
+    <i class="bi bi-person-circle me-2"></i> Personal Details
+  </div>
+
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label>First Name</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
+          <input type="text" class="form-control"
+                 formControlName="fName" name="firstName" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label>Middle Name</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
+          <input type="text" class="form-control"
+                 formControlName="mName"  name="middleName" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label>Last Name</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
+          <input type="text" class="form-control"
+                 formControlName="lName"  name="lastName" placeholder="Name">
+        </div>
+      </div>
+    </div>
+
+    <label>Full Name</label>
+    <div class="input-group">
+      <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+      <input type="text" class="form-control"
+             formControlName="fullName"  name="fullName" readonly>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Job Details -->
+    <div class="card mb-4 shadow-sm">
+  <div class="card-header text-white">
+    <i class="bi bi-briefcase-fill me-2"></i> Job Details
+  </div>
+
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label>Is Working?</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-check-circle"></i></span>
+          <select class="form-select"
+                  formControlName="isWorking"  name="isWorking">
+            <option [value]="true">Yes</option>
+            <option [value]="false">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label>Job Type</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-list-task"></i></span>
+         <select class="form-select"
+        formControlName="jobType" 
+        name="jobType">
+  <option value="">Select Job Type</option>
+  <option *ngFor="let type of jobTypes" [ngValue]="type">
+    {{ type  }}
+  </option>
+</select>
+
+<!-- <p>Selected: {{ job.jobType }}</p> -->
+
+          <!-- <ng-select [items]="jobTypes" name="jobType"
+                   [(ngModel)]="job.jobType"
+                   [ngModelOptions]="{standalone: true}"
+                   placeholder="Select a JobType"
+                   >
+        </ng-select> -->
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex align-items-end">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input"
+                 formControlName="isOwnBusiness"  name="ownBusiness" id="ownBusiness" placeholder="Name">
+          <label class="form-check-label" for="ownBusiness">
+            Own Business?
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Section -->
+    <div *ngIf="job.ownBusiness" class="border rounded p-3 mb-3 bg-light">
+      <div class="row" formGroupName="businessDetails">
+        <div class="col-md-4">
+          <label>Business Name</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-building"></i></span>
+            <input class="form-control"
+                   formControlName="businessName" name="businessName" placeholder="Name">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label>Business Type</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-diagram-3"></i></span>
+            <input class="form-control"
+                   formControlName="businessType" name="businessType" placeholder="Name">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label>Annual Income</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-currency-rupee"></i></span>
+            <input type="number" class="form-control"
+                   formControlName="annualIncome" name="annualIncome" placeholder="Name">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" formGroupName="companyDetails">
+      <div class="col-md-4">
+        <label>Company</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-building"></i></span>
+          <input class="form-control"
+                 formControlName="companyName" name="company" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label>Position</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+          <input class="form-control"
+                 formControlName="position" name="position" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label>Salary</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-cash-stack"></i></span>
+          <input type="number" class="form-control"
+                 formControlName="salary" name="salary" placeholder="Name">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Contact Details -->
+    <div class="card mb-4 shadow-sm">
+  <div class="card-header  text-white">
+    <i class="bi bi-telephone-fill me-2"></i> Contact Details
+  </div>
+
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label>Personal Email</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+          <input type="email" class="form-control"
+                 formControlName="personalEmail" name="personalEmail" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label>Official Email</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-envelope-at"></i></span>
+          <input type="email" class="form-control"
+                 formControlName="businessEmail" name="officialEmail" placeholder="Name">
+        </div>
+      </div>
+    </div>
+
+    <div class="row" formArrayName="contactList">
+<!-- <div *ngFor="let contact of contacts.controls"> -->
+     <label>Mobile Numbers</label>
+    <div *ngFor="let contact of contacts.controls; let i = index"
+         class=" col-md-6 input-group mb-2" [formGroupName]="i">
+      <span class="input-group-text"><i class="bi bi-phone"></i></span>
+      <input class="form-control" formControlName="contactNo"
+             >
+      <button class="btn btn-outline-danger"
+              type="button" (click)="removeMobile(i)">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+<!-- </div> -->
+    </div>
+   
+
+    <button class="btn blueButton ms-3" type="button" (click)="adNewContact()">
+      <i class="bi bi-plus-circle"></i> Add Mobile
+    </button>
+  </div>
+</div>
+
+
+    <div class="text-end mb-4">
+      <button class="btn blueButton" type="submit">Submit</button>
+    </div>
+
+  </form>
+</div>

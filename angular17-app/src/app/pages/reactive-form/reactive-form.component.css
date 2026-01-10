@@ -1,0 +1,17 @@
+.input-group-text {
+  background-color: #f1f3f5;
+  width: 45px;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 12px;
+}
+.card-header{
+    background-color: #0f2a44;
+}
+.blueButton{
+    background-color: #0f2a44;
+    color:white
+
+}
