@@ -5,6 +5,7 @@ import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.compo
 import { CrudWithJsonServerComponent } from './pages/crud-with-json-server/crud-with-json-server.component';
 import { RxjsBasicComponent } from './pages/rxjs-basic/rxjs-basic.component';
 import { RxjsOperatorsComponent } from './pages/rxjs-operators/rxjs-operators.component';
+import { SubBehReplayComponent } from './pages/sub-beh-replay/sub-beh-replay.component';
 
 export const routes: Routes = [
     {
@@ -30,5 +31,9 @@ export const routes: Routes = [
     {
         path:'rxjs-operators',
         component:RxjsOperatorsComponent
+    },
+    {
+        path:'sub-beh-replay',
+        component:SubBehReplayComponent
     }
 ];
