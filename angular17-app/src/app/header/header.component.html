@@ -42,6 +42,24 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/reactive">Reactive</a>
         </li>
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link d-flex align-items-center" ngbDropdownToggle>
+            RxJs
+            <i class="bi bi-caret-down-fill ms-1"></i>
+          </a>
+
+          <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <a ngbDropdownItem routerLink="/rxjs">Basic</a>
+            </li>
+            <li>
+              <a ngbDropdownItem routerLink="/employee">Advance</a>
+            </li>
+              <li>
+              <a ngbDropdownItem routerLink="/crud">Example</a>
+            </li>
+          </ul>
+        </li>
 
       </ul>
     </div>
