@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { filter, from, map, of } from 'rxjs';
+import { filter, from, interval, map, of, take } from 'rxjs';
 import { MyServicesService } from '../../core/services/my-services.service';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-rxjs-operators',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './rxjs-operators.component.html',
   styleUrl: './rxjs-operators.component.css'
 })
@@ -14,7 +15,11 @@ export class RxjsOperatorsComponent {
 
   rollList$ = of([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
-  mySer = inject(MyServicesService)
+  mySer = inject(MyServicesService);
+
+  timeinterval=interval(1000);
+
+  searchText=new FormControl();
 
   constructor() {
     this.numbers$.pipe(
@@ -34,6 +39,22 @@ export class RxjsOperatorsComponent {
     })
     this.mySer.getSingleUsers().subscribe((res) => {
       console.log(res);
+    })
+
+    this.timeinterval.pipe(
+      take(6),//how many time you have to subscribe 
+    ).subscribe((res)=>{
+      console.log(res);
+    });
+    // this.searchText.valueChanges.subscribe((res)=>{
+    //   console.log(res)
+    // });
+
+    // call api after getting more than 3 letteers in serach box
+    this.searchText.valueChanges.pipe(
+      filter(res=>res.length >=3)
+    ).subscribe((val)=>{
+      console.log(val);
     })
   }
 
