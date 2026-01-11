@@ -6,6 +6,7 @@ import { CrudWithJsonServerComponent } from './pages/crud-with-json-server/crud-
 import { RxjsBasicComponent } from './pages/rxjs-basic/rxjs-basic.component';
 import { RxjsOperatorsComponent } from './pages/rxjs-operators/rxjs-operators.component';
 import { SubBehReplayComponent } from './pages/sub-beh-replay/sub-beh-replay.component';
+import { AdvanceRxjsComponent } from './pages/advance-rxjs/advance-rxjs.component';
 
 export const routes: Routes = [
     {
@@ -35,5 +36,9 @@ export const routes: Routes = [
     {
         path:'sub-beh-replay',
         component:SubBehReplayComponent
+    },
+    {
+        path:'advance-rxjs',
+        component:AdvanceRxjsComponent
     }
 ];
