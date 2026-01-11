@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { MyServicesService } from '../../core/services/my-services.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sub-beh-replay',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './sub-beh-replay.component.html',
   styleUrl: './sub-beh-replay.component.css'
 })
@@ -20,7 +21,7 @@ export class SubBehReplayComponent implements OnInit {
   userData$: Subject<string> = new Subject<string>();
 
   ser=inject(MyServicesService);
-
+userId:any;
   constructor() {
     setTimeout(() => {
 
@@ -48,6 +49,13 @@ export class SubBehReplayComponent implements OnInit {
       // if we update value anywhere from project (any compoent)we get new value
     })
     
+  }
+
+  getData()
+  {
+    this.ser.getUserById(this.userId).subscribe((res:any)=>{
+      debugger;
+    })
   }
 
 }
