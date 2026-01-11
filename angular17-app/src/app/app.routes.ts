@@ -7,6 +7,7 @@ import { RxjsBasicComponent } from './pages/rxjs-basic/rxjs-basic.component';
 import { RxjsOperatorsComponent } from './pages/rxjs-operators/rxjs-operators.component';
 import { SubBehReplayComponent } from './pages/sub-beh-replay/sub-beh-replay.component';
 import { AdvanceRxjsComponent } from './pages/advance-rxjs/advance-rxjs.component';
+import { RxjsCrudComponent } from './pages/rxjs-crud/rxjs-crud.component';
 
 export const routes: Routes = [
     {
@@ -40,5 +41,9 @@ export const routes: Routes = [
     {
         path:'advance-rxjs',
         component:AdvanceRxjsComponent
+    },
+    {
+        path:'rxjs-crud',
+        component:RxjsCrudComponent
     }
 ];

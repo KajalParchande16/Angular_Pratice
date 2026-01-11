@@ -66,15 +66,15 @@ export class EmployeeComponent {
     console.log(this.empObj); // form data is ready
   }
 
-  openModal(c: any) {
-    this.modal = this.modalService.open(c, {
-      size: 'lg',
-      backdrop: 'static',
-      keyboard: false,
-      windowClass: 'modal-sm'
+  // openModal(c: any) {
+  //   this.modal = this.modalService.open(c, {
+  //     size: 'lg',
+  //     backdrop: 'static',
+  //     keyboard: false,
+  //     windowClass: 'modal-sm'
 
-    })
-  }
+  //   })
+  // }
 
   openModal1(comp: any) {
     this.dynamicModal.open(comp, 'lg', 'right')

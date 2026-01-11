@@ -1,0 +1,101 @@
+<div class="container">
+    <div class=" d-flex justify-content-end align-items-center  border-bottom-0 mt-2">
+    <!-- <button class="btn blueButton" (click)="openUserModal(userModal)">
+      <i class="bi bi-person-plus me-1"></i> Add User
+    </button> -->
+    <button class="btn blueButton ms-3 add-user-btn" (click)="openUserModal(empModal)">
+            <i class="bi bi-person-plus me-1"></i> Add User
+        </button>
+  </div>
+    <div class="table-responsive rounded-3  shadow-sm mt-4">
+        <table class="table custom-table mb-0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(!!userList.length)
+                {
+                @for(user of userList;track $index)
+                {
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ user.title }}</td>
+                    <td>{{ user.description }}</td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center gap-2 flex-nowrap">
+                            <button class="btn btn-sm btn-outline-primary" (click)="editUser(empModal,user)"><i
+                                    class="bi bi-pencil"></i></button>
+                            <button class="btn btn-sm btn-outline-danger" (click)="deleteUser(user._id)"><i
+                                    class="bi bi-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+                }
+                }
+                @else
+                {
+                <tr class="p-4 text-center">
+                    <p class="text-center">No Data Found</p>
+                </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<ng-template #empModal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">Profile deletion</h4>
+        <button type="button" class="btn-close" aria-label="Close button" aria-describedby="modal-title"
+            (click)="closeModal()"></button>
+    </div>
+    <div class="modal-body">
+        <form #userForm="ngForm"  >
+            <div class="row">
+            <div class="col-lg-6">
+              <label for="">Name</label>
+              <input type="text"  id="" name="username" class="form-control" minlength="3"  #title="ngModel" placeholder="name" [(ngModel)]="userObj.title" required>
+              <div class="text-danger" *ngIf="title.invalid &&(title.touched || title.dirty) ||showError">
+                <!-- {{name.errors |json}} -->
+                <span *ngIf="title.errors?.['required']">This is required</span>
+                <span *ngIf="title.errors?.['minlength']"> 3 char is needed</span>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <label for="">Email</label>
+              <input type="text" name="email" id="" class="form-control" #email="ngModel" placeholder="Descer" [(ngModel)]="userObj.description"
+                required>
+                <!-- <div class="text-danger" *ngIf="email.invalid &&(email.touched || email.dirty) || showError">
+                  <span *ngIf="email.errors?.['required']">Email is required</span>
+                  <span *ngIf="email.errors?.['pattern']">Enter Proper email id</span>
+                </div> -->
+            </div>
+          </div>
+           
+          
+         
+         
+          </form>
+    </div>
+    <div class="modal-footer">
+        @if(!!userObj._id)
+        {
+        <button type="button" ngbAutofocus class="btn blueButton" (click)="updateUser()">Update</button>
+
+        }
+        @else{
+
+            <button type="submit"  class="btn blueButton" (click)="userForm.valid?addUser(userForm):showError=true;" >Submit</button>
+        }
+        <button type="button" class="btn btn-outline-secondary" (click)="closeModal()">Cancel</button>
+    </div>
+</ng-template>
