@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { MyServicesService } from '../../core/services/my-services.service';
 import { FormsModule } from '@angular/forms';
+import { ControllerService } from '../../core/services/controller/controller.service';
 
 @Component({
   selector: 'app-sub-beh-replay',
@@ -20,8 +21,9 @@ export class SubBehReplayComponent implements OnInit {
   // userData$=new Subject("Taniya"); not possible
   userData$: Subject<string> = new Subject<string>();
 
-  ser=inject(MyServicesService);
-userId:any;
+  ser = inject(MyServicesService);
+  cs=inject(ControllerService);
+  userId: any;
   constructor() {
     setTimeout(() => {
 
@@ -44,18 +46,20 @@ userId:any;
       console.log("not val", res)
     })
 
-    this.ser.matchDuration.subscribe((res)=>{
+    this.ser.matchDuration.subscribe((res) => {
       console.log(res);//getting intial value whic is stored in service 
       // if we update value anywhere from project (any compoent)we get new value
     })
-    
+
+    this.cs.setBehSubVal(10);
+
   }
 
-  getData()
-  {
-    this.ser.getUserById(this.userId).subscribe((res:any)=>{
+  getData() {
+    this.ser.getUserById(this.userId).subscribe((res: any) => {
       debugger;
     })
   }
+
 
 }

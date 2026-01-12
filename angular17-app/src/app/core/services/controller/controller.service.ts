@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, Observable, shareReplay, tap } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, shareReplay, tap } from 'rxjs';
 import { User } from '../../User/user';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
@@ -12,7 +12,12 @@ export class ControllerService {
   http = inject(HttpClient);
   private api = 'https://api.freeapi.app/api/v1/todos';
   constructor() { }
+  behSub$ = new BehaviorSubject(0);
 
+  setBehSubVal(value: number) {
+    this.behSub$.next(value);
+  }
+  
   getAllProducts(): Observable<any> {
     return this.http.get("https://dummyjson.com/products/search?q=");
   }

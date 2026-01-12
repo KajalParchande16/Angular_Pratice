@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { forkJoin, of, switchMap } from 'rxjs';
+import { concatMap, forkJoin, mergeMap, of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-advance-rxjs',
@@ -26,7 +26,7 @@ export class AdvanceRxjsComponent implements OnInit {
     //   })
     // })
     this.searchText.valueChanges.pipe(
-      switchMap((str:string)=>this.http.get("https://dummyjson.com/products/search?q=" + str))
+      mergeMap((str:string)=>this.http.get("https://dummyjson.com/products/search?q=" + str))
     ).subscribe((res)=>{
       console.log(res);
     })
@@ -46,7 +46,7 @@ export class AdvanceRxjsComponent implements OnInit {
       // debugger;
     });
     this.cityList$.subscribe((res) => {
-      debugger;
+      // debugger;
     })
   }
 
