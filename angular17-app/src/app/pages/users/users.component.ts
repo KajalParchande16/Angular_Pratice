@@ -106,10 +106,17 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser(item: Users) {
+    // console.log(this.users);
+    this.userObj = this.us.makeDeepCopy(item);
+    // console.log(this.userObj.id);
+
     let confirmDelete = confirm("Are you sure want to delete user?")
     if (confirmDelete) {
+
+      // this.users.findIndex((u)=>console.log(u.id))
       const currentUser = this.users.findIndex((u) => u.id === this.userObj.id);
-      if (!!currentUser) {
+      // console.log(currentUser);
+      if (currentUser!==-1) {
         this.users.splice(currentUser, 1);
         localStorage.setItem('angular-17-crud', JSON.stringify(this.users));
       }

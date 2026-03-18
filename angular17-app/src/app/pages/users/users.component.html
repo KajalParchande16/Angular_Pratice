@@ -67,6 +67,8 @@
   <!-- Modal -->
   <div class="modal" id="userModal" #userModal>
     <div class="modal-dialog" role="document">
+          <form #userForm="ngForm" >
+
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Add User</h5>
@@ -75,7 +77,6 @@
           </button>
         </div>
         <div class="modal-body">
-          <form #userForm="ngForm" >
             <div class="row">
             <div class="col-lg-6">
               <label for="">Name</label>
@@ -121,7 +122,6 @@
             <!-- </div> -->
 
           </div>
-          </form>
         </div>
         <div class="modal-footer">
           @if(userObj.id==0)
@@ -135,7 +135,9 @@
           }
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
+        
       </div>
+    </form>
     </div>
   </div>
 </div>
