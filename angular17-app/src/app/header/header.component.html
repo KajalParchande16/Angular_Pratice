@@ -14,7 +14,7 @@
     <!-- Collapse -->
     <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
       <ul class="navbar-nav ms-auto">
-
+        <h2 style="color:white">{{counterVal|async }}</h2>
         <li class="nav-item">
           <a class="nav-link" routerLink="/user">Home</a>
         </li>
@@ -71,6 +71,9 @@
         </li>
          <li class="nav-item">
           <a class="nav-link" routerLink="/user">Home</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" routerLink="/NgRx">NgRx</a>
         </li>
         <li>
           <select class="form-select"  name="Role" (change)="onRoleChange($event)">

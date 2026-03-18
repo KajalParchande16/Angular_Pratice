@@ -9,6 +9,7 @@ import { SubBehReplayComponent } from './pages/sub-beh-replay/sub-beh-replay.com
 import { AdvanceRxjsComponent } from './pages/advance-rxjs/advance-rxjs.component';
 import { RxjsCrudComponent } from './pages/rxjs-crud/rxjs-crud.component';
 import { AdvanceRxjsOperatosComponent } from './pages/advance-rxjs-operatos/advance-rxjs-operatos.component';
+import { CounterComponent } from './pages/counter/counter.component';
 
 export const routes: Routes = [
     {
@@ -50,5 +51,8 @@ export const routes: Routes = [
     {
         path:'another-Way',
         component:AdvanceRxjsOperatosComponent
+    },
+    {path:'NgRx',
+        component:CounterComponent
     }
 ];
