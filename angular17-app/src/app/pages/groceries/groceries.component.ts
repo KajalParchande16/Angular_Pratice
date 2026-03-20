@@ -44,6 +44,7 @@ export class GroceriesComponent {
     this.store.dispatch(addGroceryToBucket({ payload: queParam }))
   }
   removeFromBucket(item: Bucket) {
+    console.log(item)
 
   }
 }
