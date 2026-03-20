@@ -1,0 +1,14 @@
+<div class="container">
+
+    <h1>Groceries</h1>
+    <div class="grocery">
+        <label for="">Select Grocery</label>
+        <!-- <input type="text" name="state" id="" class="form-control" placeholder="Select Grocery"> -->
+         <ng-select [items]="groceryList" name="Grocery"
+                   bindLabel="name" bindValue="id"
+                   placeholder="Select a Grocery"
+                  >
+        </ng-select>
+    </div>
+
+</div>

@@ -10,49 +10,62 @@ import { AdvanceRxjsComponent } from './pages/advance-rxjs/advance-rxjs.componen
 import { RxjsCrudComponent } from './pages/rxjs-crud/rxjs-crud.component';
 import { AdvanceRxjsOperatosComponent } from './pages/advance-rxjs-operatos/advance-rxjs-operatos.component';
 import { CounterComponent } from './pages/counter/counter.component';
+import { NgrxLearningComponent } from './pages/ngrx-learning/ngrx-learning.component';
 
 export const routes: Routes = [
     {
-        path:'user',
-        component:UsersComponent
+        path: '',
+        redirectTo: 'user',
+        pathMatch: "full"
+
     },
-     {
-        path:'employee',
-        component:EmployeeComponent
+
+    {
+        path: 'user',
+        component: UsersComponent
     },
     {
-        path:'crud',
-        component:CrudWithJsonServerComponent
+        path: 'employee',
+        component: EmployeeComponent
     },
     {
-        path:'reactive',
-        component:ReactiveFormComponent
+        path: 'crud',
+        component: CrudWithJsonServerComponent
     },
     {
-        path:'rxjs',
-        component:RxjsBasicComponent
+        path: 'reactive',
+        component: ReactiveFormComponent
     },
     {
-        path:'rxjs-operators',
-        component:RxjsOperatorsComponent
+        path: 'rxjs',
+        component: RxjsBasicComponent
     },
     {
-        path:'sub-beh-replay',
-        component:SubBehReplayComponent
+        path: 'rxjs-operators',
+        component: RxjsOperatorsComponent
     },
     {
-        path:'advance-rxjs',
-        component:AdvanceRxjsComponent
+        path: 'sub-beh-replay',
+        component: SubBehReplayComponent
     },
     {
-        path:'rxjs-crud',
-        component:RxjsCrudComponent
+        path: 'advance-rxjs',
+        component: AdvanceRxjsComponent
     },
     {
-        path:'another-Way',
-        component:AdvanceRxjsOperatosComponent
+        path: 'rxjs-crud',
+        component: RxjsCrudComponent
     },
-    {path:'NgRx',
-        component:CounterComponent
+    {
+        path: 'another-Way',
+        component: AdvanceRxjsOperatosComponent
+    },
+    {
+        path: 'NgRx',
+        component: CounterComponent
+    },
+    {
+        path: 'NgRx-learning',
+        component: NgrxLearningComponent
     }
 ];

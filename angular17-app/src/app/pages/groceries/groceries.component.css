@@ -1,0 +1,26 @@
+*{
+    /* background-color: bisque; */
+
+}
+.container
+{
+    /* width: 100%; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 400px;
+    background-color: bisque;
+
+}
+h1{
+    text-align: center;
+    margin: 5px;
+}
+.grocery{
+    /* text-align: center; */
+    
+    select{
+        width:200px
+    }
+
+}

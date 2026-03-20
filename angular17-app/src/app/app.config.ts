@@ -5,8 +5,9 @@ import { routes } from './app.routes';
 import {provideHttpClient} from '@angular/common/http'
 import { provideStore } from '@ngrx/store';
 import { counterReducer } from './store/counter.reducer';
+import { provideEffects } from '@ngrx/effects';
 
 export const appConfig: ApplicationConfig = {
   
-  providers: [ provideHttpClient(),provideRouter(routes),provideStore({count:counterReducer})]
+  providers: [provideHttpClient(), provideRouter(routes), provideStore({ count: counterReducer }), provideEffects()]
 };

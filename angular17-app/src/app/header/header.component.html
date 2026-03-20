@@ -72,8 +72,22 @@
          <li class="nav-item">
           <a class="nav-link" routerLink="/user">Home</a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" routerLink="/NgRx">NgRx</a>
+        
+         <li class="nav-item" ngbDropdown>
+          <a class="nav-link d-flex align-items-center" ngbDropdownToggle>
+            NgRx
+            <i class="bi bi-caret-down-fill ms-1"></i>
+          </a>
+
+          <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <a ngbDropdownItem routerLink="/NgRx">Basic</a>
+            </li>
+            <li>
+              <a ngbDropdownItem routerLink="/NgRx-learning">Grocerory</a>
+            </li>
+            
+          </ul>
         </li>
         <li>
           <select class="form-select"  name="Role" (change)="onRoleChange($event)">
