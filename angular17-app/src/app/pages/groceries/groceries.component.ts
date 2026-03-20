@@ -24,5 +24,9 @@ export class GroceriesComponent {
   constructor(private store: Store<{ groceries: Grocery[] }>) {
     // for store DI getting all griceries (passing reducer name mentioned in app.config with type)
     this.getAllGroceries$ = this.store.select('groceries');
+
+    //  setTimeout(() => {
+    //    this.getAllGroceries$ = this.store.select('groceries');
+    //  }, 3000);
   }
 }
