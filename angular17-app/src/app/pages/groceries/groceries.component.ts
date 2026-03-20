@@ -4,6 +4,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { Store } from '@ngrx/store';
 import { Grocery } from '../../shared/model/grocery';
 import { Observable } from 'rxjs';
+import { Bucket } from '../../shared/model/bucket';
+import { addGroceryToBucket } from '../../ngrx-store/action/addGroceryToBucket.action';
 
 @Component({
   selector: 'app-groceries',
@@ -29,4 +31,21 @@ export class GroceriesComponent {
     //    this.getAllGroceries$ = this.store.select('groceries');
     //  }, 3000);
   }
+
+  addToBucket(item: Bucket) {
+    // create action for add grocery into bucket & pass paylaod with increasing quantity
+    let queParam = {
+      id: item.id,
+      name: item.name,
+      quantity: 1
+    }
+
+    // write action
+    this.store.dispatch(addGroceryToBucket({ payload: queParam }))
+  }
+  removeFromBucket(item: Bucket) {
+
+  }
 }
+
+

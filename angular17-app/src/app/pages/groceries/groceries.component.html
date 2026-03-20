@@ -11,9 +11,9 @@
         @for(groc of getAllGroceries$ |async;track groc.id){
 
         <li class="liList">
-            <span class="btn btn-primary">+</span>
+            <span class="btn btn-primary" (click)="addToBucket(groc)">+</span>
             {{groc.name}}
-            <span class="btn btn-danger">-</span>
+            <span class="btn btn-danger" (click)="removeFromBucket(groc)">-</span>
         </li>
         }
         @empty{

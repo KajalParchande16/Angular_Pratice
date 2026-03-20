@@ -7,6 +7,7 @@ import { provideStore } from '@ngrx/store';
 import { counterReducer } from './store/counter.reducer';
 import { provideEffects } from '@ngrx/effects';
 import { groceryReducer } from './ngrx-store/reducer/groceries.reducer';
+import { bucketList } from './ngrx-store/reducer/bucket.reducer';
 
 export const appConfig: ApplicationConfig = {
 
@@ -14,7 +15,8 @@ export const appConfig: ApplicationConfig = {
   provideStore(
     {
       count: counterReducer,
-      groceries: groceryReducer
+      groceries: groceryReducer,
+      bucket:bucketList
     }
   ), provideEffects()]
 };
