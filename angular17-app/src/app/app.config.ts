@@ -2,12 +2,19 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import {provideHttpClient} from '@angular/common/http'
+import { provideHttpClient } from '@angular/common/http'
 import { provideStore } from '@ngrx/store';
 import { counterReducer } from './store/counter.reducer';
 import { provideEffects } from '@ngrx/effects';
+import { groceryReducer } from './ngrx-store/reducer/groceries.reducer';
 
 export const appConfig: ApplicationConfig = {
-  
-  providers: [provideHttpClient(), provideRouter(routes), provideStore({ count: counterReducer }), provideEffects()]
+
+  providers: [provideHttpClient(), provideRouter(routes),
+  provideStore(
+    {
+      count: counterReducer,
+      groceries: groceryReducer
+    }
+  ), provideEffects()]
 };

@@ -4,11 +4,27 @@
     <div class="grocery">
         <label for="">Select Grocery</label>
         <!-- <input type="text" name="state" id="" class="form-control" placeholder="Select Grocery"> -->
-         <ng-select [items]="groceryList" name="Grocery"
-                   bindLabel="name" bindValue="id"
-                   placeholder="Select a Grocery"
-                  >
+        <ng-select [items]="groceryList" name="Grocery" bindLabel="name" bindValue="id" placeholder="Select a Grocery">
         </ng-select>
     </div>
+    <ul class="ulList">
+        @for(groc of getAllGroceries$ |async;track groc.id){
+
+        <li class="liList">
+            <span class="btn btn-primary">+</span>
+            {{groc.name}}
+            <span class="btn btn-danger">-</span>
+        </li>
+        }
+
+
+        <!-- <li class="liList">
+    <div class="left">
+        <button class="circle-btn btn btn-primary">+</button>
+        <span class="item-text">Milk</span>
+    </div>
+    <button class="circle-btn btn btn-danger">-</button>
+</li> -->
+    </ul>
 
 </div>
