@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { Store } from '@ngrx/store';
 import { Grocery } from '../../shared/model/grocery';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { addGroceryToBucket, removeFromBucket } from '../../ngrx-store/action/addGroceryToBucket.action';
+import { selectGrocery, selectGroceryByType } from '../../ngrx-store/selector/grocery.selector';
 
 @Component({
   selector: 'app-groceries',
@@ -14,23 +15,36 @@ import { addGroceryToBucket, removeFromBucket } from '../../ngrx-store/action/ad
   styleUrl: './groceries.component.css'
 })
 export class GroceriesComponent {
-  groceryList: any[] = [
-    { id: 1, name: 'Milk' },
-    { id: 2, name: 'Paneer' },
-    { id: 3, name: 'Shreekhand' }
-  ]
-
+  groceryList!: Observable<string[]>
   getAllGroceries$!: Observable<Grocery[]>;
+  filteredGroceries$?: Observable<Grocery[]>;
   // created variable for store data
   constructor(private store: Store<{ groceries: Grocery[] }>) {
     // for store DI getting all griceries (passing reducer name mentioned in app.config with type)
-    this.getAllGroceries$ = this.store.select('groceries');
+    // this.getAllGroceries$ = this.store.select('groceries');
+    this.getAllGroceries$ = this.store.select(selectGrocery);
 
-    //  setTimeout(() => {
-    //    this.getAllGroceries$ = this.store.select('groceries');
-    //  }, 3000);
+  }
+  ngOnInit() {
+    // this.groceryList=this.store.select('groceries');
+    // this.store.select('groceries').subscribe((res)=>{
+    //   this.groceryList= [...new Set(res.map((e)=>e.type))];
+    // });
+    this.groceryList = this.store.select('groceries').pipe(
+      map(res => [...new Set(res.map((e) => e.type))].map((type) => type.charAt(0).toUpperCase() + type.slice(1)))
+    )
   }
 
+  selectType(e: string) {
+    let selectedType = e;
+    if (selectedType) {
+      this.filteredGroceries$ = this.store.select(selectGroceryByType(selectedType))
+    }
+    else {
+      this.filteredGroceries$ = undefined;
+    }
+
+  }
   addToBucket(item: Grocery) {
     // create action for add grocery into bucket & pass paylaod with increasing quantity
     let queParam = {

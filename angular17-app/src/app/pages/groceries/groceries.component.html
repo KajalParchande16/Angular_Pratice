@@ -4,15 +4,16 @@
     <div class="grocery">
         <label for="">Select Grocery</label>
         <!-- <input type="text" name="state" id="" class="form-control" placeholder="Select Grocery"> -->
-        <ng-select [items]="groceryList" name="Grocery" bindLabel="name" bindValue="id" placeholder="Select a Grocery">
+        <ng-select [items]="groceryList|async" name="Grocery" placeholder="Select a Grocery"
+            (change)="selectType($event)">
         </ng-select>
     </div>
     <ul class="ulList">
-        @for(groc of getAllGroceries$ |async;track groc.id){
+        @for(groc of (filteredGroceries$ |async) ??(getAllGroceries$ |async);track groc.id){
 
         <li class="liList">
             <span class="btn btn-primary" (click)="addToBucket(groc)">+</span>
-             <div class="item-name">{{groc.name}}</div>
+            <div class="item-name">{{groc.name}}</div>
             <span class="btn btn-danger" (click)="removeFromBucket(groc)">-</span>
         </li>
         }
