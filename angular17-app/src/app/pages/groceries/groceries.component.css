@@ -55,6 +55,10 @@ span.btn {
     line-height: 1 !important;
 }
 
+.item-name{
+    font-size: 16px;
+    font-weight:500;
+}
 /* .circle-btn {
     display: flex;
     justify-content: center;

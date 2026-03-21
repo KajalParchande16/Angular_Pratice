@@ -1,1 +1,26 @@
-<p>bucket works!</p>
+<div class="container w-100">
+
+    <h1>Bucket</h1>
+    <ul class="ulList">
+        @for(item of bucketList$ |async;track item.id){
+
+        <li class="liList">
+            <div class="item-name">{{item.name}}</div>
+             <span>{{item.quantity}}</span>
+        </li>
+        }
+        @empty{
+        <li>Loading.....</li>
+        }
+
+
+        <!-- <li class="liList">
+    <div class="left">
+        <button class="circle-btn btn btn-primary">+</button>
+        <span class="item-text">Milk</span>
+    </div>
+    <button class="circle-btn btn btn-danger">-</button>
+</li> -->
+    </ul>
+
+</div>
