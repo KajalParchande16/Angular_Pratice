@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Bucket } from '../../shared/model/bucket';
-import { addGroceryToBucket } from '../action/addGroceryToBucket.action';
+import { addGroceryToBucket, removeFromBucket } from '../action/addGroceryToBucket.action';
 
 const initialState: Bucket[] = [];
 
@@ -36,5 +36,21 @@ export const bucketList = createReducer(initialState,
 
         }
 
+    }),
+    on(removeFromBucket, (state, action) => {
+        const existingItem = state.find((e) => e.id === action.payload.id);
+        // console.log(existingItem && existingItem.quantity > 1);
+        // her we check if grocery avl in bucket & quantity is greater than 1
+        // if true then it will decrease quantity
+        if (existingItem && existingItem.quantity > 1) {
+            return state.map((item) => {
+                return item.id === action.payload.id ? { ...item, quantity: item.quantity - 1 } : item
+            })
+        }
+        else {
+            // if only 1 grocery grocery added &need to remove 
+            // it will remove & show remaining grocery in  bucket
+            return state.filter((item) => (item.id != action.payload.id))
+        }
     })
 )
