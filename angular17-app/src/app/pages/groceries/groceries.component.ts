@@ -6,6 +6,7 @@ import { Grocery } from '../../shared/model/grocery';
 import { map, Observable } from 'rxjs';
 import { addGroceryToBucket, removeFromBucket } from '../../ngrx-store/action/addGroceryToBucket.action';
 import { selectGrocery, selectGroceryByType } from '../../ngrx-store/selector/grocery.selector';
+import { groceryActions } from '../../ngrx-store/action/grocery.action';
 
 @Component({
   selector: 'app-groceries',
@@ -23,6 +24,8 @@ export class GroceriesComponent {
     // for store DI getting all griceries (passing reducer name mentioned in app.config with type)
     // this.getAllGroceries$ = this.store.select('groceries');
     this.getAllGroceries$ = this.store.select(selectGrocery);
+  // this.getAllGroceries$=this.store.dispatch(groceryActions.loadGroceries())
+
 
   }
   ngOnInit() {
@@ -38,7 +41,7 @@ export class GroceriesComponent {
   selectType(e: string) {
     let selectedType = e;
     if (selectedType) {
-      this.filteredGroceries$ = this.store.select(selectGroceryByType(selectedType))
+      this.filteredGroceries$ = this.store.select(selectGroceryByType(selectedType));
     }
     else {
       this.filteredGroceries$ = undefined;

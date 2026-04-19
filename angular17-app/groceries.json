@@ -1,0 +1,8 @@
+{
+  "groceries": [
+    { "id": 1, "name": "Milk", "type": "Fruit" },
+    { "id": 2, "name": "Apple", "type": "Fruit" },
+    { "id": 3, "name": "Banana", "type": "Fruit" },
+    { "id": 4, "name": "Chips", "type": "Snacks" }
+  ]
+}
