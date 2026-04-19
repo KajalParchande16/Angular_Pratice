@@ -89,6 +89,22 @@
             
           </ul>
         </li>
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link d-flex align-items-center" ngbDropdownToggle>
+            Signal
+            <i class="bi bi-caret-down-fill ms-1"></i>
+          </a>
+
+          <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <a ngbDropdownItem routerLink="/basic">Basic</a>
+            </li>
+            <li>
+              <a ngbDropdownItem routerLink="/computed">Computed</a>
+            </li>
+            
+          </ul>
+        </li>
         <li>
           <select class="form-select"  name="Role" (change)="onRoleChange($event)">
             <option value="Admin">Admin</option>

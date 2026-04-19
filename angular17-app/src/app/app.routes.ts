@@ -11,6 +11,9 @@ import { RxjsCrudComponent } from './pages/rxjs-crud/rxjs-crud.component';
 import { AdvanceRxjsOperatosComponent } from './pages/advance-rxjs-operatos/advance-rxjs-operatos.component';
 import { CounterComponent } from './pages/counter/counter.component';
 import { NgrxLearningComponent } from './pages/ngrx-learning/ngrx-learning.component';
+import { BasicComponent } from './pages/signal-learning/basic/basic.component';
+import { computed } from '@angular/core';
+import { ComputedComponent } from './pages/signal-learning/computed/computed.component';
 
 export const routes: Routes = [
     {
@@ -67,5 +70,13 @@ export const routes: Routes = [
     {
         path: 'NgRx-learning',
         component: NgrxLearningComponent
+    },
+    {
+        path:'basic',
+        component:BasicComponent
+    },
+    {
+        path:'computed',
+        component:ComputedComponent
     }
 ];

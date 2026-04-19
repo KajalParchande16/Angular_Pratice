@@ -1,0 +1,14 @@
+<div class="row p-5">
+    <div class="col-lg-6">
+<h2>{{x}}</h2>
+<!-- calling signal like getter function -->
+<h3>Signal-{{count()}}</h3>
+<h3>{{data()}}</h3>
+<button class="btn btn-primary btn-sm" (click)="x+1">Set normal variable Value</button>&nbsp;&nbsp;
+<!-- we can't do it -->
+<button class="btn btn-primary btn-sm" (click)="count.set(100)">Set Signal Value</button>&nbsp;&nbsp;
+<button class="btn btn-primary btn-sm" (click)="count.set(count()+1)">Increment Signal Value</button>&nbsp;&nbsp;
+<button class="btn btn-primary btn-sm" (click)="count.set(count()-1)">Decrement Signal Value</button>
+<button class="btn btn-primary btn-sm" (click)="updateData()">Update Data</button>
+</div>
+</div>
