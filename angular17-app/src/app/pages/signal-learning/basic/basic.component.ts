@@ -17,6 +17,8 @@ export class BasicComponent {
   updateData()
   {
     this.data.set('hello');
+    // but when we use 2 data type update method will not work 
+    // this.data.update((val)=>val+1)
   }
 
 }
