@@ -23,7 +23,7 @@ export class SignalInDepthComponent {
 
   cityName: string = '';
 
-  empObj=signal({empId:101,name:'Pranav',city:'Pune',pincode:402002,})
+  empObj = signal({ empId: 101, name: 'Pranav', city: 'Pune', pincode: 402002, })
 
   constructor() {
     console.log(this.course());
@@ -34,10 +34,16 @@ export class SignalInDepthComponent {
       this.cityName = '';
     }
   }
-  changeEmpId(event:any)
-  {
+  changeEmpId(event: any) {
     // console.log(event.target.value);
-    let value=event.target.value;
-    this.empObj.update(oldData=>({...oldData,empId:value}))
+    let value = event.target.value;
+    this.empObj.update(oldData => ({ ...oldData, empId: value }))
+  }
+  // instead of creating separate function for each value change crete common function for changing value
+
+  changeFormValue(key: string, event: any) {
+    let value = event.target.value;
+    this.empObj.update(oldval => ({ ...oldval, [key]: value }))
+
   }
 }

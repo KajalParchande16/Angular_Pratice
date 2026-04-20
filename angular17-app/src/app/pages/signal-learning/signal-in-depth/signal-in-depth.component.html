@@ -4,16 +4,25 @@
         <h2>{{cityList()}}</h2>
         <h3>{{studObj() |json}}</h3>
         <input class="form-control" type="text" name="" id="" [(ngModel)]="cityName">
-    <button class="btn btn-success btn-sm" (click)="addCity()">Add City</button>
+        <button class="btn btn-success btn-sm" (click)="addCity()">Add City</button>
     </div>
     <div class="col-lg-6">
         <h4>{{empObj()|json}}</h4>
         <div class="row">
             <div class="col-lg-4">
-                <input type="text" (input)="changeEmpId($event)" name="" id="" placeholder="EmpId">
+                <input type="text" (input)="changeFormValue('empId',$event)" name="" id="" placeholder="EmpId">
+            </div>
+            <div class="col-lg-4">
+                <input type="text" (input)="changeFormValue('name',$event)" name="" id="" placeholder="EmpId">
+            </div>
+            <div class="col-lg-4">
+                <input type="text" (input)="changeFormValue('city',$event)" name="" id="" placeholder="EmpId">
+            </div>
+            <div class="col-lg-4">
+                <input type="text" (input)="changeFormValue('pincode',$event)" name="" id="" placeholder="EmpId">
             </div>
         </div>
     </div>
 
-    
+
 </div>
