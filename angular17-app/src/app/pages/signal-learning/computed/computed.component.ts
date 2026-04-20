@@ -1,4 +1,4 @@
-import { Component, computed, Signal, signal } from '@angular/core';
+import { Component, computed, effect, Signal, signal } from '@angular/core';
 
 @Component({
   selector: 'app-computed',
@@ -13,10 +13,25 @@ export class ComputedComponent {
   z=this.x+this.y;
   p=signal(50);
   q=signal(20);
-  // r=this.p()+this.q();
+  showHeading=false;
+  r=signal(0);
   count:Signal<any>=computed(()=>{
     return this.p()+this.q();
   })
+
+  constructor()
+  {
+    effect(()=>{
+      // console.log("value of p",this.p());
+      if(this.r()==2)
+      {
+        this.showHeading=true;
+      }
+      else{
+        this.showHeading=false;
+      }
+    })
+  }
 
   // in normal value update value not calculate so computed signal used
   showFinalValue()
@@ -32,6 +47,14 @@ export class ComputedComponent {
   }
   changeValue()
   {
+    // this.r++;
+    this.r.update((v)=>v+1);
+    console.log(this.r());
     this.p.set(500);
+    // this.showHeading.set(true);
   }
+
+
+  // computed signal are just readable signal
+  // effect can reading/reacting on signal value not updating signal value
 }
