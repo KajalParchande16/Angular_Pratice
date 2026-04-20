@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, computed, Signal, signal } from '@angular/core';
+import { Component, computed, effect, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -36,6 +36,10 @@ export class SignalInDepthComponent {
   fullName = computed(() => (this.fName() + ' ' + this.mName() + " " + this.lName()))
   constructor() {
     console.log(this.course());
+    effect(()=>{
+      console.log(this.fName());
+    })
+    // capture every signal value
   }
   addCity() {
     if (!!this.cityName) {
