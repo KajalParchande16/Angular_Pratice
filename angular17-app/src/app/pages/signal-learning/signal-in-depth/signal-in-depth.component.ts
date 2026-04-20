@@ -1,11 +1,12 @@
 import { JsonPipe } from '@angular/common';
 import { Component, computed, effect, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TempErrorComponent } from "../../../shared/temp-error/temp-error.component";
 
 @Component({
   selector: 'app-signal-in-depth',
   standalone: true,
-  imports: [JsonPipe, FormsModule],
+  imports: [JsonPipe, FormsModule, TempErrorComponent],
   templateUrl: './signal-in-depth.component.html',
   styleUrl: './signal-in-depth.component.css'
 })

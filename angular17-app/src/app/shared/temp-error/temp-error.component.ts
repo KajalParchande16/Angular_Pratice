@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,8 @@ export class TempErrorComponent {
   @Input() controlName!: NgModel;
   @Input() label:String='This Field';
   @Input() showError=false;
+
+  alertMessage=input<string>('')
 
 
   isShowError() : boolean | null {
