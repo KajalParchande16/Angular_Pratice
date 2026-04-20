@@ -30,4 +30,8 @@ export class ComputedComponent {
     console.log(this.count());
 
   }
+  changeValue()
+  {
+    this.p.set(500);
+  }
 }
