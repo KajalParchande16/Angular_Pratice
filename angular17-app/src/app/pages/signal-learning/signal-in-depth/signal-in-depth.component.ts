@@ -23,6 +23,8 @@ export class SignalInDepthComponent {
 
   cityName: string = '';
 
+  empObj=signal({empId:101,name:'Pranav',city:'Pune',pincode:402002,})
+
   constructor() {
     console.log(this.course());
   }
@@ -31,5 +33,11 @@ export class SignalInDepthComponent {
       this.cityList.update(oldList => ([...oldList, this.cityName]));
       this.cityName = '';
     }
+  }
+  changeEmpId(event:any)
+  {
+    // console.log(event.target.value);
+    let value=event.target.value;
+    this.empObj.update(oldData=>({...oldData,empId:value}))
   }
 }
