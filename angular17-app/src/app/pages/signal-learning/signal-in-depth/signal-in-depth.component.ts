@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, Signal, signal } from '@angular/core';
+import { Component, computed, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -25,6 +25,15 @@ export class SignalInDepthComponent {
 
   empObj = signal({ empId: 101, name: 'Pranav', city: 'Pune', pincode: 402002, })
 
+  // empFullName=signal({
+  //   fname:'',
+  //   mName:'',
+  //   lName:'',
+  // })
+  fName = signal('');
+  mName = signal('');
+  lName = signal('');
+  fullName = computed(() => (this.fName() + ' ' + this.mName() + " " + this.lName()))
   constructor() {
     console.log(this.course());
   }
@@ -45,5 +54,18 @@ export class SignalInDepthComponent {
     let value = event.target.value;
     this.empObj.update(oldval => ({ ...oldval, [key]: value }))
 
+  }
+  updateFName(event: any) {
+    this.fName.set(event.target.value);
+    // console.log(event);
+  }
+
+  updateMName(event: any) {
+    this.mName.set(event.target.value);
+    // console.log(event);
+  }
+  updateLName(event: any) {
+    this.lName.set(event.target.value);
+    // console.log(event);
   }
 }

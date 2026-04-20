@@ -26,3 +26,24 @@
 
 
 </div>
+<div class="row p-5">
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-lg-4">
+                <input (input)="updateFName($event)" type="text" name="" id="" placeholder="First Name">
+            </div>
+            <div class="col-lg-4">
+                <input (input)="updateMName($event)" type="text" name="" id="" placeholder="Middle Name">
+            </div>
+            <div class="col-lg-4">
+                <input (input)="updateLName($event)" type="text" name="" id="" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="row m-3">
+            <div>
+                <input class="form-control" [value]="fullName()" type="text" name="" id="" placeholder="First Name">
+
+            </div>
+        </div>
+    </div>
+</div>
