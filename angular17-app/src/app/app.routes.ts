@@ -14,6 +14,7 @@ import { NgrxLearningComponent } from './pages/ngrx-learning/ngrx-learning.compo
 import { BasicComponent } from './pages/signal-learning/basic/basic.component';
 import { computed } from '@angular/core';
 import { ComputedComponent } from './pages/signal-learning/computed/computed.component';
+import { SignalInDepthComponent } from './pages/signal-learning/signal-in-depth/signal-in-depth.component';
 
 export const routes: Routes = [
     {
@@ -78,5 +79,10 @@ export const routes: Routes = [
     {
         path:'computed',
         component:ComputedComponent
+    },
+    {
+        path:'signalInDepth',
+        component:SignalInDepthComponent
     }
+
 ];
