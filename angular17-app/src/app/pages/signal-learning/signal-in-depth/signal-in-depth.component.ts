@@ -2,7 +2,8 @@ import { JsonPipe } from '@angular/common';
 import { AfterViewInit, Component, computed, effect, ElementRef, Signal, signal, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TempErrorComponent } from "../../../shared/temp-error/temp-error.component";
-
+import {toSignal} from '@angular/core/rxjs-interop'
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-signal-in-depth',
   standalone: true,
@@ -39,12 +40,15 @@ export class SignalInDepthComponent implements AfterViewInit {
   showAlert = signal(true);
   cityNameViewChild = viewChild<ElementRef<HTMLInputElement>>('focusCity');
 
-  constructor() {
+  
+  constructor(private http:HttpClient) {
     console.log(this.course());
     effect(() => {
       console.log(this.fName());
     })
     // capture every signal value
+    const userList=toSignal(http.get(''),{initialValue:[]});
+    // convert observable to signal using toSignal
   }
   ngAfterViewInit() {
     this.cityNameViewChild()?.nativeElement.focus();
