@@ -19,14 +19,23 @@ export class TempErrorComponent {
   closeAlert = output<void>();
 
 
-  isShowError(): boolean | null {
-    return this.controlName.invalid && (this.controlName.touched || this.controlName.dirty || this.showError)
+  // isShowError(): boolean | null {
+  //   return this.controlName.invalid && (this.controlName.touched || this.controlName.dirty || this.showError)
+  // }
+  isShowError(): boolean {
+    return !!(
+      this.controlName?.invalid &&
+      (this.controlName?.touched ||
+        this.controlName?.dirty ||
+        this.showError)
+    );
   }
   onClose() {
 
     this.closeAlert.emit();
   }
   get errorMessage() {
+    if (!this.controlName) return null;
     if (!this.controlName.errors?.['required']) {
       return null
     }

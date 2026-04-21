@@ -3,7 +3,7 @@
     <div class="col-lg-6">
         <h2>{{cityList()}}</h2>
         <h3>{{studObj() |json}}</h3>
-        <input class="form-control" type="text" name="" id="" [(ngModel)]="cityName">
+        <input #focusCity class="form-control" type="text" name="" id="" [(ngModel)]="cityName">
         <button class="btn btn-success btn-sm" (click)="addCity()">Add City</button>
     </div>
     <div class="col-lg-6">
@@ -29,7 +29,8 @@
 <div class="row">
     @if(showAlert())
     {
-    <app-temp-error [alertMessage]="'Signal In Depth Learning'" (closeAlert)="showAlert.set(false)"></app-temp-error>
+    <app-temp-error [showError]="false" [alertMessage]="'Signal In Depth Learning'"
+        (closeAlert)="showAlert.set(false)"></app-temp-error>
     }
 </div>
 <div class="row p-5">

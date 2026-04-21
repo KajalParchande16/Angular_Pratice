@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, computed, effect, Signal, signal } from '@angular/core';
+import { AfterViewInit, Component, computed, effect, ElementRef, Signal, signal, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TempErrorComponent } from "../../../shared/temp-error/temp-error.component";
 
@@ -10,7 +10,7 @@ import { TempErrorComponent } from "../../../shared/temp-error/temp-error.compon
   templateUrl: './signal-in-depth.component.html',
   styleUrl: './signal-in-depth.component.css'
 })
-export class SignalInDepthComponent {
+export class SignalInDepthComponent implements AfterViewInit {
 
   course = signal('Angular');
 
@@ -37,6 +37,7 @@ export class SignalInDepthComponent {
   fullName = computed(() => (this.fName() + ' ' + this.mName() + " " + this.lName()));
 
   showAlert = signal(true);
+  cityNameViewChild = viewChild<ElementRef<HTMLInputElement>>('focusCity');
 
   constructor() {
     console.log(this.course());
@@ -44,6 +45,9 @@ export class SignalInDepthComponent {
       console.log(this.fName());
     })
     // capture every signal value
+  }
+  ngAfterViewInit() {
+    this.cityNameViewChild()?.nativeElement.focus();
   }
   addCity() {
     if (!!this.cityName) {
