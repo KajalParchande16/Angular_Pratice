@@ -3,9 +3,9 @@
  {{alertMessage()}}
 </div> -->
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  {{alertMessage()}} You should check in on some of those fields below.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
+  {{ alertMessage() }} You should check in on some of those fields below.
+
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="onClose()">
   </button>
 </div>
 <div class="text-danger" *ngIf="isShowError()">

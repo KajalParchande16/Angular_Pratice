@@ -34,10 +34,13 @@ export class SignalInDepthComponent {
   fName = signal('');
   mName = signal('');
   lName = signal('');
-  fullName = computed(() => (this.fName() + ' ' + this.mName() + " " + this.lName()))
+  fullName = computed(() => (this.fName() + ' ' + this.mName() + " " + this.lName()));
+
+  showAlert = signal(true);
+
   constructor() {
     console.log(this.course());
-    effect(()=>{
+    effect(() => {
       console.log(this.fName());
     })
     // capture every signal value
